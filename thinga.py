@@ -8,26 +8,27 @@
 #Add flips and switches, current alternators and things
 
 world = [
-[3,0,0],
-[1,1,1],
-[0,0,8],
+[3,0,1,1,1],
+[1,0,1,0,1],
+[1,1,1,0,8],
 ]
 
 world_tmp = [
-[3,0,0],
-[1,1,1],
-[0,0,8],
+[3,0,1,1,1],
+[1,0,1,0,1],
+[1,1,1,0,8],
 ]
 
 def drawScreen():
-	global world
+	global world, counter
+	print("Turn: "+str(counter))
 	screen_batch = ""
 	for row in world:
 		screen_batch += " "
 		for cell in row:
 			screen_batch += str(cell)
 		screen_batch += "\n"
-	screen_batch += "-----"
+	screen_batch += "-"*(len(world[0])+2)
 
 	print(screen_batch)
 
@@ -36,7 +37,7 @@ def getNeighbouring(x,y,value):
 	
 	lista = []
 	try :
-		if world[y-1][x] == value and y-1 > 0:
+		if world[y-1][x] == value and y-1 >= 0:
 			lista.append((y-1,x))
 	except IndexError:
 		pass
@@ -46,7 +47,7 @@ def getNeighbouring(x,y,value):
 	except IndexError:
 		pass
 	try :
-		if world[y][x-1] == value and x-1 > 0:
+		if world[y][x-1] == value and x-1 >= 0:
 			lista.append((y,x-1))
 	except IndexError:
 		pass
@@ -74,14 +75,18 @@ def decopyWorld():
 			world[y][x] = cell
 
 def litNeighbouring(x,y,val):
-	global world_tmp
+	global world_tmp, stop, won
 	neighbourCables = getNeighbouring(x,y,val)
 	for cable in neighbourCables:
 		world_tmp[cable[0]][cable[1]] = val+1
+		if val == 8:
+			stop = True
+			won = True
 
 def update():
-	global world, world_tmp, stop, won
+	global world, world_tmp, stop, won, counter
 	copyWorld()
+	counter += 1
 	for y, row in enumerate(world):
 		for x, cell in enumerate(row):
 			if(cell == 3):
@@ -90,18 +95,16 @@ def update():
 			if(cell == 2):
 				litNeighbouring(x,y,1)
 				litNeighbouring(x,y,8)
-			if(cell == 9):
-				stop = True
-				won = True
 	decopyWorld()
 
 counter = 0
 won = False
 stop = False
+
+drawScreen()
 while not stop:
 	update()
 	drawScreen()
-	counter += 1
 	if counter > 9:
 		stop = True
 if won:
