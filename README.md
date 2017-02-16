@@ -1,2 +1,2 @@
 # Python-scripts
-This repository consists on a bunch of little Python scripts to use for quick and small tasks.
+This repository consists on a bunch of little Python scripts that can be used to complete quick and small tasks that would take too much time to do manually.
