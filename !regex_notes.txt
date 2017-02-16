@@ -1,0 +1,11 @@
+POSITIVE LOOKAHEAD:
+	re(?=gex)		//Will match the "re" "regex"
+
+NEGATIVE LOOKAHEAD:
+	re(?!gex)		//Will match the "re" "reguay"
+
+POSITIVE LOOKBEHIND:
+	(?<=re)gex		//Will match the "gex" in "regex"
+
+NEGATIVE LOOKBEHIND:
+	(?<!re)gex		//Will match the "gex" "tirannosaurus gex"
