@@ -46,7 +46,7 @@ def decipher(file, key):
 	cipher2 = AES.new(key, AES.MODE_EAX, nonce)
 	data = cipher2.decrypt_and_verify(ciphertext, tag)
 
-	print("Data readed from file: "+str(data))
+	print("Data readed from file: "+str(data, encoding='UTF-8'))
 
 
 if __name__ == "__main__":
