@@ -20,3 +20,6 @@ def openPageInNewTab(driver, url):
 	# have yet to test. I'll leave this line to remember myself to test it,
 	# but if someone wants to provide an answer you can go ahead.
 	# driver.switch_to_window(driver.window_handles[len(driver.window_handles)])
+
+
+#NOTE TO SELF: LOOK WHAT SELENIUM PROFILE IS
