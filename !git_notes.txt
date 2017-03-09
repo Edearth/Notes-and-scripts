@@ -1,6 +1,12 @@
 Work process:
 git fetch -> git pull -> work -> git add * -> git commit -m "msg" -> git push
 
+Create remote branch:
+	git checkout -b <branch-name>
+	git push <remote-name> <branch-name>
+	                         ^ this is actually <local-branch-name>:<remote-branch-name>,
+	                         but if you omit one it asumes both branches have the same name.
+
 Resetting remote to commit:
 	git reset --hard <commit-hash>
 	git push -f origin master
