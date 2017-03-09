@@ -1,0 +1,6 @@
+Work process:
+git fetch -> git pull -> work -> git add * -> git commit -m "msg" -> git push
+
+Resetting remote to commit:
+	git reset --hard <commit-hash>
+	git push -f origin master
