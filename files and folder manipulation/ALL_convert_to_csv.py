@@ -1,4 +1,4 @@
-# INFO: This script requires that LibreOffice is installed in the system
+# INFO: This script requires LibreOffice to be installed in the system
 # REMINDER: It'd be nice to be able to pass the LibreOffice installation path through
 #           the console parameters.
 
