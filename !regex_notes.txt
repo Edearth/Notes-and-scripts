@@ -1,16 +1,37 @@
 POSITIVE LOOKAHEAD:
-	re(?=gex)			//Will match the  "re" in "regex"
+		re(?=gex)		//Will match the  "re" in "regex"
 
 NEGATIVE LOOKAHEAD:
-	re(?!gex)			//Will match the  "re" in "reguay"
+		re(?!gex)		//Will match the  "re" in "reguay"
 
 POSITIVE LOOKBEHIND:
-	(?<=re)gex			//Will match the "gex" in "regex"
+		(?<=re)gex		//Will match the "gex" in "regex"
 
 NEGATIVE LOOKBEHIND:
-	(?<!re)gex			//Will match the "gex" in "tirannosaurus gex"
+		(?<!re)gex		//Will match the "gex" in "tirannosaurus gex"
 
 BACKREFERENCE:
-	<(.*)>.*</\1>		//Will match a whole XML element like "<h1>asd</h1>".
+		<(.*)>.*</\1>	//Will match a whole XML element like "<h1>asd</h1>".
 						//Keep in mind that "<h1>asd</h1></h1>" will alse be matched
-						
+
+DOTALL MODIFIER:
+		(?s)			//Using this modifier at the beginning of the expression will
+						// allow the dot character (".") to select every character, 
+						// including newline characters
+
+CHARACTER CLASSES:
+	Character classes are pretty basic, they let you select any character inside square brackets:
+		[A-Za-z0-9]		//This character class will match any letter in upper/lowercase, any
+						// one-digit number
+
+	But did you know you can also use negated character classes to match ANYTHING except the
+	characters in the class?
+		[^0-9]			//This will match anything except a number.
+
+		//This will match from the A to the first B inside that A. For example:
+			// using the expression "A:.*B" will match both elements
+			// using the expression "A:[^\}]*B" will match the first one
+			
+			A: [{ /*things inside json file*/ B:'value'}], A: [{ /*things inside json file*/ B:'value'}]
+
+		//You can use this with the dotall modifier in order to mass-replace a JSON file.

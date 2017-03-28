@@ -7,6 +7,11 @@ Create remote branch:
 	                         ^ this is actually <local-branch-name>:<remote-branch-name>,
 	                         but if you omit one it asumes both branches have the same name.
 
+Discard all changes made since last commit:
+	git checkout .
+				^ I think this makes you 'checkout' to the last commit, effectively discarding
+				all the changes you made since that. 
+
 Resetting remote to commit:
 	git reset --hard <commit-hash>
 	git push -f origin master
