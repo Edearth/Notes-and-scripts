@@ -15,3 +15,17 @@ Discard all changes made since last commit:
 Resetting remote to commit:
 	git reset --hard <commit-hash>
 	git push -f origin master
+
+Delete pushed commits (DO NOT DO IF SOMEONE HAS ALREADY PULLED THE CHANGES):
+
+git reset <previous label or sha1>
+
+	this will re-checkout all the updates locally (so git status will list all updated files)
+
+	then you "do your work" and re-commit your changes (Note: this step is optional)
+
+git commit -am "blabla"
+
+	At this moment your local tree differs from the remote
+
+git push -f

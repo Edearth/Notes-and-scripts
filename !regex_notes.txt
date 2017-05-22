@@ -19,6 +19,12 @@ DOTALL MODIFIER:
 						// allow the dot character (".") to select every character, 
 						// including newline characters
 
+NON-GREEDY DOT-STAR:
+						//Usually the ".*" in "<h1>.*</h1>" would match from the first
+						// <h1> to the last </h1> in this example "<h1>asd</h1></h1>".
+		.*?				//Using an interrogant symbol it becomes non-greedy, so it will
+						// just match "<h1>asd</h1>" in the last example.
+
 CHARACTER CLASSES:
 	Character classes are pretty basic, they let you select any character inside square brackets:
 		[A-Za-z0-9]		//This character class will match any letter in upper/lowercase, any
@@ -35,3 +41,10 @@ CHARACTER CLASSES:
 			A: [{ /*things inside json file*/ B:'value'}], A: [{ /*things inside json file*/ B:'value'}]
 
 		//You can use this with the dotall modifier in order to mass-replace a JSON file.
+
+
+
+
+CONCRETE EXAMPLES:
+
+	Line not containing word: ^((?!word).)*\n
