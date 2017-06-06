@@ -22,7 +22,7 @@ DOTALL MODIFIER:
 NON-GREEDY DOT-STAR:
 						//Usually the ".*" in "<h1>.*</h1>" would match from the first
 						// <h1> to the last </h1> in this example "<h1>asd</h1></h1>".
-		.*?				//Using an interrogant symbol it becomes non-greedy, so it will
+		.*?				//Using an interrogation symbol it becomes non-greedy, so it will
 						// just match "<h1>asd</h1>" in the last example.
 
 CHARACTER CLASSES:
@@ -47,4 +47,23 @@ CHARACTER CLASSES:
 
 CONCRETE EXAMPLES:
 
-	Line not containing word: ^((?!word).)*\n
+	> Line not containing word: 
+
+				^((?!word).)*$
+	
+
+	> Select all keys and values inside a json file without quotes (for example, to put the quotes): 
+
+				(?![\s\t])(?<=[:=\[\]{},\s])([^\[\]{}=:,]+)(?=[:=\[{}\],])
+
+			Using group 1 for replacing you can put the quotes in JSON files like this one:
+
+				{transformXmlNode=[{xpath=//Name/First/text(), newValue=NEW NAME}, {xpath=//Name/Last/text(), newValue=LAST NAME}]}
+
+			Replace with:
+
+				"$1" (quotes included)
+
+			Will yield the following result:
+
+				{"transformXmlNode"=[{"xpath"="//Name/First/text()", "newValue"="NEW NAME"}, {"xpath"="//Name/Last/text()", "newValue"="LAST NAME"}]}
