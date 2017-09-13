@@ -50,7 +50,10 @@ CONCRETE EXAMPLES:
 	> Line not containing word: 
 
 				^((?!word).)*$
-	
+
+	> Line containing one or more words in list:
+
+				^.*(this|that|other|...).*$	
 
 	> Select all keys and values inside a json file without quotes (for example, to put the quotes): 
 
