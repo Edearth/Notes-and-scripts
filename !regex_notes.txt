@@ -43,6 +43,15 @@ CHARACTER CLASSES:
 		//You can use this with the dotall modifier in order to mass-replace a JSON file.
 
 
+TIPS:
+	When you see your regex is getting too complex, you might want to consider solving the problem in
+	more than one step. For instance, if you have to select all SQL statements in an XML file and find
+	something in them, you might want to first look for all SQL query tags and then perform the search.
+	Something like this:
+	1)	<sql>(.*?)</sql>
+	2)	FROM (.*) WHERE
+	This will prevent the regex engine from finding matches within two different <sql> tags and will
+	make writing your regex easier overall.
 
 
 CONCRETE EXAMPLES:

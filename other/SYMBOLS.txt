@@ -6,6 +6,13 @@ SYMBOLS
 ¸  °  ¦  ®  ©  ı
 ½  ¼  ¾  ¹  ³  ²
 
+ARROWS
+← → ↑ ↓
+
+TO DO
+
+☐ ☑
+
 BACKGROUND
 ░ ▒ ▓ █ ▄ ■ ▀
 
