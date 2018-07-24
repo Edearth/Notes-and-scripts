@@ -1,6 +1,7 @@
 #This script can be used to print the battery percentage of devices connected to a MacBook.
 #It uses the "ioreg" command line tool to list the devices and lists the devices with both a name and a battery percent.
 
+import sys
 import re
 import subprocess
 
@@ -28,28 +29,34 @@ def getDeviceBatteryPercent(device):
 		return int(match.group(1))
 	return -1
 
+def getColorForBatteryPercent(batteryPercent):
+	if(batteryPercent >= 70):
+		return GREEN
+	elif (batteryPercent >= 30):
+		return YELLOW
+	else:
+		return RED
+
 def formatBatteryPercent(batteryPercent):
 	#bar number correction
 	if batteryPercent < 100:
 		batteryPercent = batteryPercent - 1 #this is done for aesthetical purposes: this way we don't have 10% battery with "2 bars being drawn"
 	
-	#set color
-	if(batteryPercent >= 70):
-		color = GREEN
-	elif (batteryPercent >= 30):
-		color = YELLOW
-	else:
-		color = RED
+	color = getColorForBatteryPercent(batteryPercent)	
 
-	#return result
-	return color+"/"+("/"*(batteryPercent/10)).ljust(10,'.')+ENDC
+	return "["+color+"/"+("/"*(batteryPercent/10)).ljust(10,'.')+ENDC+"] "+color+str(batteryPercent)+"%"+ENDC
 
-data = getBatteryDataFromCommandLine()
-devices = splitResultIntoDevices(data)
+def main(argv):
+	data = getBatteryDataFromCommandLine()
+	devices = splitResultIntoDevices(data)
 
-for device in devices:
-	name = getDeviceName(device)
-	battery = getDeviceBatteryPercent(device)
-	
-	if name != None and name != "" and battery != None and battery != -1:
-		print "  - "+(name+": ").ljust(36, ' ')+"["+formatBatteryPercent(battery)+"]"
+	for device in devices:
+		name = getDeviceName(device)
+		battery = getDeviceBatteryPercent(device)
+		
+		if name != None and name != "" and battery != None and battery != -1:
+			print "  - "+(name+": ").ljust(36, ' ')+formatBatteryPercent(battery)
+
+if __name__ == "__main__":
+    main(sys.argv)
+
