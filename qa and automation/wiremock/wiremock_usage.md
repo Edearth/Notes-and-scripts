@@ -1,15 +1,18 @@
 #REQUEST MATCHING:
+
 ###URL matching:
+
 ```json
 {
   "request": {
     "url": "/your/url?and=query", //or
-    "urlPattern": "/your/([a-z]*)\\?and=query"
+    "urlPattern": "/your/([a-z]*)\\?and=query" //regex
   }
 }
 ```
 
 ###Header matching:
+
 ```json
 {
 	"request": {
@@ -32,6 +35,7 @@
 ```
 
 ###Basic auth:
+
 ```json
 {
     "request": {
@@ -49,7 +53,9 @@
 ```
 
 ###JSONPath examples:
+
 Request example:
+
 ```json
 {
 	"user" : {
@@ -61,6 +67,7 @@ Request example:
 ```
 
 WireMock mapping:
+
 ```json
 {
 	"request" : {
@@ -74,7 +81,9 @@ WireMock mapping:
 ```
 
 #RESPONSE
+
 ###Normal example:
+
 ```json
 {
 	"response": {
@@ -84,6 +93,7 @@ WireMock mapping:
 ```
 
 ###Body in file example:
+
 ```json
 {
 	"response": {
@@ -94,9 +104,11 @@ WireMock mapping:
 ```
 
 #RESPONSE TEMPLATING
+
 Templates have to be enabled with either `--global-response-templating` or  `--local-response-templating` before being able to use them in the standalone version.
 
 ###Get data from request:
+
 ```json
 {
 	"response" : {
@@ -106,7 +118,9 @@ Templates have to be enabled with either `--global-response-templating` or  `--l
 ```
 
 ###Extracting values from JSON:
+
 Example request body:
+
 ```json
 "body": {
 	"user" : {
@@ -118,6 +132,7 @@ Example request body:
 ```
 
 This this will render `John`:
+
 ```json
 {
 	"response" : {
@@ -127,6 +142,7 @@ This this will render `John`:
 ```
 
 And this will render `["mother", "father", "sister"]` because it conserves JSON syntax:
+
 ```json
 {
 	"response" : {
