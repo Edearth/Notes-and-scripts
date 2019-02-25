@@ -29,3 +29,7 @@ git commit -am "blabla"
 	At this moment your local tree differs from the remote
 
 git push -f
+
+
+This allows you to diff only the changes from your branch when you commit a whole bunch of stuff that you got from develop
+	git diff origin/branch-name --name-only
