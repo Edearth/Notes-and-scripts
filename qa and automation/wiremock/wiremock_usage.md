@@ -1,6 +1,6 @@
-#REQUEST MATCHING:
+# REQUEST MATCHING:
 
-###URL matching:
+### URL matching:
 
 ```json
 {
@@ -11,7 +11,7 @@
 }
 ```
 
-###Header matching:
+### Header matching:
 
 ```json
 {
@@ -34,7 +34,7 @@
 }
 ```
 
-###Basic auth:
+### Basic auth:
 
 ```json
 {
@@ -52,7 +52,7 @@
 }
 ```
 
-###JSONPath examples:
+### JSONPath examples:
 
 Request example:
 
@@ -80,9 +80,9 @@ WireMock mapping:
 }
 ```
 
-#RESPONSE
+# RESPONSE
 
-###Normal example:
+### Normal example:
 
 ```json
 {
@@ -92,7 +92,7 @@ WireMock mapping:
 }
 ```
 
-###Body in file example:
+### Body in file example:
 
 ```json
 {
@@ -103,11 +103,11 @@ WireMock mapping:
 }
 ```
 
-#RESPONSE TEMPLATING
+# RESPONSE TEMPLATING
 
 Templates have to be enabled with either `--global-response-templating` or  `--local-response-templating` before being able to use them in the standalone version.
 
-###Get data from request:
+### Get data from request:
 
 ```json
 {
@@ -117,7 +117,7 @@ Templates have to be enabled with either `--global-response-templating` or  `--l
 }
 ```
 
-###Extracting values from JSON:
+### Extracting values from JSON:
 
 Example request body:
 

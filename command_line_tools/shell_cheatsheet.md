@@ -1,5 +1,5 @@
 
-#####Run multiple commands in one line
+### Run multiple commands in one line
 
 ```
 A; B    # Run A and then B, regardless of success of A
