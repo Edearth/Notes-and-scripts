@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#dependency check
+if [ -z "$(which jq)" ] ; then
+  >&2 echo "Missing dependency: jq" 
+  exit 1
+fi
+
+if [ $# -lt 2 ]
+then
+  echo "Usage: $0 file1 file2"
+  exit 1
+fi
+
+diff <(jq -S . $1) <(jq -S . $2)
+
