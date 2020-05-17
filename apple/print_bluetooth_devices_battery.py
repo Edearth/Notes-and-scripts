@@ -1,5 +1,11 @@
-#This script can be used to print the battery percentage of devices connected to a MacBook.
-#It uses the "ioreg" command line tool to list the devices and lists the devices with both a name and a battery percent.
+# This script can be used to print the remaining battery of devices connected 
+# to a MacBook. I used it in my rc/profile config file to quickly (and
+# graphically) get a glance at how much battery my devices have left. 
+# You can't use that stupid "Magic Mouse" while charging it.
+#
+# It uses the "ioreg" command line tool to get the information it needs, so
+# it should run "out of the box" in a Mac (although this is using Python 2,
+# so bear that in mind; probably should update it).
 
 import sys
 import re
