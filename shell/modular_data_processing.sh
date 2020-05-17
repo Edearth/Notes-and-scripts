@@ -19,13 +19,21 @@
 # `get_user_id "john" | get_referred_users -f -`
 
 function print_usage() {
-	>&2 echo "script_name data [-f file]
+	>&2 echo 'script_name data [-f file]
   
 This script does "something" with the input data.
-  
+
+Pass data like:
+* Single parameter:
+    ./script "data"
+* Reading from a file:
+    ./script -f filepath         
+* Reading from stdin:
+    cat filepath | ./script -f -
+
 Options:
   -f    Instead of using argument input data, you can pass a list of input datas inside a file
-  -h    Display this help and exit"
+  -h    Display this help and exit'
 }
 
 function do_something() {
